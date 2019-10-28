@@ -23,7 +23,8 @@ public class ProblemSet5 {
 
         ps.surroundMe("null", "6789");
         ps.endsMeet("123456789", 11);
-        System.out.println(ps.middleMan("1234567"));
+        ps.middleMan("1234567");
+        System.out.println("12345", "234")
     }
     
     /*
@@ -89,7 +90,11 @@ public class ProblemSet5 {
      */
     
     public boolean isCentered(String text, String target) {
-        return false;
+        if (middleMan(text).equals(target)) {
+            return true
+        } else {
+            return false;
+        }
     }
     
     /*
