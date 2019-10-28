@@ -23,6 +23,7 @@ public class ProblemSet5 {
 
         ps.surroundMe("null", "6789");
         ps.endsMeet("123456789", 11);
+        System.out.println(ps.middleMan("1234567"));
     }
     
     /*
@@ -68,7 +69,16 @@ public class ProblemSet5 {
      */
     
     public String middleMan(String text) {
-        return "";
+        if (text == null || text.length() % 2 == 0 || text.length() < 3) {
+            return text;
+        }
+        String message = "";
+
+        int firstIndexNum = ((text.length() - 1) / 2) - 1;
+        int lastIndexNum = ((text.length() + 1) / 2) + 1;
+
+        message += text.substring(firstIndexNum, lastIndexNum);
+        return message;
     }
     
     /*
