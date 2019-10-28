@@ -22,6 +22,7 @@ public class ProblemSet5 {
         ProblemSet5 ps = new ProblemSet5();
 
         ps.surroundMe("null", "6789");
+        ps.endsMeet("123456789", 11);
     }
     
     /*
@@ -51,7 +52,13 @@ public class ProblemSet5 {
      */
     
     public String endsMeet(String text, int n) {
-        return "";
+        if (text == null || text.length() < 1 || text.length() > 10 || n < 1 || n > text.length()) {
+            return text;
+        }
+        String message = "";
+        message += text.substring(0, n);
+        message += text.substring((text.length() - n));
+        return message;
     }
     
     /*
