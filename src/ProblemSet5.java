@@ -25,6 +25,7 @@ public class ProblemSet5 {
         ps.endsMeet("123456789", 11);
         ps.middleMan("1234567");
         ps.isCentered("12345", "234");
+        ps.countMe("My name is Emily", 's');
         System.out.println();
     }
     
@@ -105,7 +106,17 @@ public class ProblemSet5 {
      */
     
     public int countMe(String text, char suffix) {
-        return 2;
+        int counter = 0;
+        if (text == null || !Character.isAlphabetic(suffix)) {
+            return -1;
+        }
+        for (int i = 0; i < text.length(); i++){
+            if (text.charAt(i) == suffix && (text.charAt(i + 1) == ' ' || text.charAt(i + 1) == '.' ||
+              text.charAt(i + 1) == ',' || text.charAt(i + 1) == ';')) {
+                counter++;
+            }
+        }
+        return counter;
     }
     
     /*
