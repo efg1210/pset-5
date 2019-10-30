@@ -25,8 +25,10 @@ public class ProblemSet5 {
         ps.endsMeet("123456789", 11);
         ps.middleMan("1234567");
         ps.isCentered("12345", "234");
-        ps.countMe("My name is Emily", 's');
-        System.out.println();
+        //ps.countMe("My name is Emily", 's');
+        ps.triplets("Hello");
+        System.out.println(ps.countMe("My name i Emilys.", 's'));
+        System.out.println(ps.countMe("My name i Emilys", 's'));
     }
     
     /*
@@ -111,9 +113,18 @@ public class ProblemSet5 {
             return -1;
         }
         for (int i = 0; i < text.length(); i++){
-            if (text.charAt(i) == suffix && (text.charAt(i + 1) == ' ' || text.charAt(i + 1) == '.' ||
-              text.charAt(i + 1) == ',' || text.charAt(i + 1) == ';')) {
-                counter++;
+            if ((i + 1) == text.length()) {
+                System.out.println("i is: " + i);
+                System.out.println("length is: " + text.length());
+            }
+            if (text.charAt(i) == suffix && i < text.length()) {
+                if ((text.charAt(i + 1) == ' ') {
+                    counter++;
+                }
+            } else if (text.charAt(i) == suffix && i == text.length()) {
+                if (i  == text.length() - 1)) {
+                    counter++;
+                }
             }
         }
         return counter;
