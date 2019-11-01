@@ -28,7 +28,7 @@ public class ProblemSet5 {
         ps.isCentered("12345", "234");
         ps.countMe("My name is Emily", 's');
         ps.triplets("aaaa");
-        //System.out.println(ps.addMe("null"));
+        System.out.println(ps.addMe("111"));
     }
     
     /*
