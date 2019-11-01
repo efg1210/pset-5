@@ -25,10 +25,9 @@ public class ProblemSet5 {
         ps.endsMeet("123456789", 11);
         ps.middleMan("1234567");
         ps.isCentered("12345", "234");
-        //ps.countMe("My name is Emily", 's');
+        ps.countMe("My name is Emily", 's');
         ps.triplets("Hello");
-        System.out.println(ps.countMe("My name i Emilys.", 's'));
-        System.out.println(ps.countMe("My name i Emilys", 's'));
+        System.out.println(ps.triplets("Hello"));
     }
     
     /*
@@ -112,19 +111,13 @@ public class ProblemSet5 {
         if (text == null || !Character.isAlphabetic(suffix)) {
             return -1;
         }
-        for (int i = 0; i < text.length(); i++){
-            if ((i + 1) == text.length()) {
-                System.out.println("i is: " + i);
-                System.out.println("length is: " + text.length());
-            }
-            if (text.charAt(i) == suffix && i < text.length()) {
-                if ((text.charAt(i + 1) == ' ') {
+        for (int i = 1; i <= text.length(); i++) {
+            if (text.charAt(i - 1) == suffix && i < text.length()) {
+                if (text.charAt(i) == ' ') {
                     counter++;
                 }
-            } else if (text.charAt(i) == suffix && i == text.length()) {
-                if (i  == text.length() - 1)) {
-                    counter++;
-                }
+            } else if (text.charAt(i - 1) == suffix && i == text.length()) {
+                counter++;
             }
         }
         return counter;
@@ -137,7 +130,11 @@ public class ProblemSet5 {
      */
     
     public int triplets(String text) {
-        return 2;
+        if (text == null) {
+            return -1;
+        }
+        int counter++;
+        
     }
     
     /*
