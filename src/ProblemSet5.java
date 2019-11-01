@@ -21,13 +21,14 @@ public class ProblemSet5 {
     public static void main(String[] args) {
         ProblemSet5 ps = new ProblemSet5();
 
+        //do not forget empty strings
         ps.surroundMe("null", "6789");
         ps.endsMeet("123456789", 11);
         ps.middleMan("1234567");
         ps.isCentered("12345", "234");
         ps.countMe("My name is Emily", 's');
-        ps.triplets("Hello");
-        System.out.println(ps.triplets("Hello"));
+        ps.triplets("aaaa");
+        //System.out.println(ps.addMe("null"));
     }
     
     /*
@@ -133,8 +134,22 @@ public class ProblemSet5 {
         if (text == null) {
             return -1;
         }
-        int counter++;
+        if (text.length() < 3) {
+            return 0;
+        }
         
+        int stringLength = text.length() - 1;
+        int counter = 0;
+        for (int i = 0; i < stringLength; i++) {
+            if ((i + 2) <= stringLength) {
+                if (text.charAt(i) == text.charAt(i + 1) && text.charAt(i) == text.charAt(i + 2)) {
+                    counter++;
+                }
+            } else {
+                break;
+            }
+        }
+        return counter;
     }
     
     /*
