@@ -22,13 +22,17 @@ public class ProblemSet5 {
         ProblemSet5 ps = new ProblemSet5();
 
         //do not forget empty strings
-        ps.surroundMe("null", "6789");
+        ps.surroundMe("cde", "abfg");
         ps.endsMeet("123456789", 11);
         ps.middleMan("1234567");
         ps.isCentered("12345", "234");
         ps.countMe("My name is Emily", 's');
         ps.triplets("aaaa");
-        System.out.println(ps.addMe("111"));
+        ps.addMe("111");
+        
+        System.out.println(ps.addMe("123 abc 123"));
+        System.out.println(ps.addMe("abcdefghijk"));
+        System.out.println(ps.addMe(null));
     }
     
     /*
@@ -94,6 +98,9 @@ public class ProblemSet5 {
      */
     
     public boolean isCentered(String text, String target) {
+        if (text == null || target == null) {
+            return false;
+        }
         if (middleMan(text).equals(target)) {
             return true;
         } else {
@@ -159,7 +166,16 @@ public class ProblemSet5 {
      */
     
     public long addMe(String text) {
-        return 2;
+        if (text == null) {
+            return -1;
+        }
+        long counter = 0;
+        for (int i = 0; i <= (text.length() - 1); i++) {
+            if (Character.isDigit(text.charAt(i))) {
+                counter += Character.getNumericValue(text.charAt(i));
+            }
+        }
+        return counter;
     }
     
     /*
