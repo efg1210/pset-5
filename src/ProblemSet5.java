@@ -29,10 +29,13 @@ public class ProblemSet5 {
         ps.countMe("My name is Emily", 's');
         ps.triplets("aaaa");
         ps.addMe("111");
+        // ps.sequence("aaa");
+        // ps.intertwine("", "");
+        // ps.isPalindrome("racecar");
         
-        System.out.println(ps.addMe("123 abc 123"));
-        System.out.println(ps.addMe("abcdefghijk"));
-        System.out.println(ps.addMe(null));
+        System.out.println(ps.sequence("aaabbbb"));
+        // System.out.println(ps.sequence("abcdefghijk"));
+        // System.out.println(ps.sequence(null));
     }
     
     /*
@@ -121,7 +124,7 @@ public class ProblemSet5 {
         }
         for (int i = 1; i <= text.length(); i++) {
             if (text.charAt(i - 1) == suffix && i < text.length()) {
-                if (text.charAt(i) == ' ') {
+                if (Character.isSpaceChar(text.charAt(i))) {
                     counter++;
                 }
             } else if (text.charAt(i - 1) == suffix && i == text.length()) {
@@ -185,7 +188,25 @@ public class ProblemSet5 {
      */
     
     public long sequence(String text) {
-        return 2;
+        if (text == null) {
+            return -1;
+        }
+        long highestCount = 0;
+        long currentCounter = 1;
+        for (int i = 0; i <= (text.length() - 1); i++) {            
+            if (highestCount < currentCounter) {
+                highestCount = currentCounter;
+            }
+
+            if (i < (text.length() - 1)) {
+                if (text.charAt(i) == text.charAt(i + 1)) {
+                    // System.out.println("char at i: " + text.charAt(i));
+                    // System.out.println("char at i + 1: " + text.charAt(i + 1));
+                    currentCounter++;
+                }
+            }
+        }
+        return highestCount;
     }
     
     /*
