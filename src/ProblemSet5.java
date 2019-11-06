@@ -32,10 +32,10 @@ public class ProblemSet5 {
         // ps.sequence("aaa");
         // ps.intertwine("", "");
         // ps.isPalindrome("racecar");
-        
-        System.out.println(ps.sequence("aaabbbb"));
-        // System.out.println(ps.sequence("abcdefghijk"));
-        // System.out.println(ps.sequence(null));
+
+        //System.out.println(ps.sequence("aaabbbb"));
+        //System.out.println(ps.sequence("abcdefghijk"));
+        //System.out.println(ps.sequence(null));
     }
     
     /*
@@ -119,7 +119,7 @@ public class ProblemSet5 {
     
     public int countMe(String text, char suffix) {
         int counter = 0;
-        if (text == null || !Character.isAlphabetic(suffix)) {
+        if (text == null || !((suffix >= 'a' && suffix <= 'z') || (suffix >= 'A' && suffix <= 'Z'))) {
             return -1;
         }
         for (int i = 1; i <= text.length(); i++) {
