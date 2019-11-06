@@ -33,9 +33,8 @@ public class ProblemSet5 {
         // ps.intertwine("", "");
         // ps.isPalindrome("racecar");
 
-        //System.out.println(ps.sequence("aaabbbb"));
-        //System.out.println(ps.sequence("abcdefghijk"));
-        //System.out.println(ps.sequence(null));
+        System.out.println(ps.sequence("\\\\\\n"));
+        //System.out.println(ps.sequence("aAabBbBb"));
     }
     
     /*
@@ -191,6 +190,14 @@ public class ProblemSet5 {
         if (text == null) {
             return -1;
         }
+        if (text.equals("")) {
+            return 0;
+        }
+        
+        System.out.println(text);
+        text = text.replace("\\", "\\\\");
+        System.out.println(text);
+
         long highestCount = 0;
         long currentCounter = 1;
         for (int i = 0; i <= (text.length() - 1); i++) {            
@@ -198,13 +205,21 @@ public class ProblemSet5 {
                 highestCount = currentCounter;
             }
 
+            // System.out.println("currentCounter: " + currentCounter);
+            // System.out.println("highestCount: " + highestCount);
+
             if (i < (text.length() - 1)) {
                 if (text.charAt(i) == text.charAt(i + 1)) {
-                    // System.out.println("char at i: " + text.charAt(i));
-                    // System.out.println("char at i + 1: " + text.charAt(i + 1));
                     currentCounter++;
+                } else {
+                    currentCounter = 1;
                 }
+            } else {
+                currentCounter = 1;
             }
+        }
+        if (highestCount < currentCounter) {
+            highestCount = currentCounter;
         }
         return highestCount;
     }
