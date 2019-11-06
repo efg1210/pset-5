@@ -29,12 +29,15 @@ public class ProblemSet5 {
         ps.countMe("My name is Emily", 's');
         ps.triplets("aaaa");
         ps.addMe("111");
-        // ps.sequence("aaa");
-        // ps.intertwine("", "");
+        ps.sequence("\n\n\n\n");
+        ps.intertwine("", "");
         // ps.isPalindrome("racecar");
 
-        System.out.println(ps.sequence("\\\\\\n"));
-        //System.out.println(ps.sequence("aAabBbBb"));
+        System.out.println(ps.isPalindrome("racecar"));
+        //Mr. Wilson's tests
+        // System.out.println(ps.isPalindrome("racecar"));
+        // System.out.println(ps.isPalindrome("Madam"));
+        // System.out.println(ps.isPalindrome(null));
     }
     
     /*
@@ -194,19 +197,12 @@ public class ProblemSet5 {
             return 0;
         }
         
-        System.out.println(text);
-        text = text.replace("\\", "\\\\");
-        System.out.println(text);
-
         long highestCount = 0;
         long currentCounter = 1;
         for (int i = 0; i <= (text.length() - 1); i++) {            
             if (highestCount < currentCounter) {
                 highestCount = currentCounter;
             }
-
-            // System.out.println("currentCounter: " + currentCounter);
-            // System.out.println("highestCount: " + highestCount);
 
             if (i < (text.length() - 1)) {
                 if (text.charAt(i) == text.charAt(i + 1)) {
@@ -232,7 +228,25 @@ public class ProblemSet5 {
      */
     
     public String intertwine(String a, String b) {
-        return "";
+        if (a == null || b == null) {
+            return null;
+        }
+
+        String message = "";
+        int shorterLength = (b.length() > a.length()) ? a.length() : b.length();
+
+        for (int i = 0; i < shorterLength; i++) {
+            message += a.charAt(i);
+            message += b.charAt(i);
+        }
+
+        if (b.length() > a.length()) {
+            message += b.substring(shorterLength);
+        } else if (a.length() > b.length()) {
+            message += a.substring(shorterLength);
+        }
+
+        return message;
     }
     
     /*
@@ -242,6 +256,10 @@ public class ProblemSet5 {
      */
     
     public boolean isPalindrome(String text) {
-        return false;
+        if (text == null) {
+            return false;
+        }
+        
+        return true;
     }
 }
