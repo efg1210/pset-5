@@ -21,7 +21,6 @@ public class ProblemSet5 {
     public static void main(String[] args) {
         ProblemSet5 ps = new ProblemSet5();
 
-        //do not forget empty strings
         ps.surroundMe("cde", "abfg");
         ps.endsMeet("123456789", 11);
         ps.middleMan("1234567");
@@ -31,13 +30,7 @@ public class ProblemSet5 {
         ps.addMe("111");
         ps.sequence("\n\n\n\n");
         ps.intertwine("", "");
-        // ps.isPalindrome("racecar");
-
-        System.out.println(ps.isPalindrome("racecar"));
-        //Mr. Wilson's tests
-        // System.out.println(ps.isPalindrome("racecar"));
-        // System.out.println(ps.isPalindrome("Madam"));
-        // System.out.println(ps.isPalindrome(null));
+        ps.isPalindrome("racecar");
     }
     
     /*
@@ -259,7 +252,14 @@ public class ProblemSet5 {
         if (text == null) {
             return false;
         }
-        
+
+        int loopLength = (text.length() / 2);
+        for (int i = 0; i < loopLength; i++){
+            int secondPlace = ((text.length() - 1) - i);
+            if (text.charAt(i) != text.charAt(secondPlace)) {
+                return false;
+            }
+        }
         return true;
     }
 }
